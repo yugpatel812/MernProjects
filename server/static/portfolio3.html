@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Portfolio</title>
+    <style>
+        /* Add your CSS code here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background: #f4f4f4;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        main {
+            padding: 1rem;
+        }
+        section {
+            background: white;
+            margin: 1rem auto;
+            padding: 1rem;
+            max-width: 800px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007BFF;
+        }
+        form div {
+            margin-bottom: 1rem;
+        }
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        form button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background: #0056b3;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Yug Patel's Portfolio</h1>
+        <p>Web Developer | Data Analyst | Tech Enthusiast</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Yug Patel, a passionate web developer with a keen interest in data analytics and emerging technologies.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Python, SQL</li>
+                <li>Data Visualization (PowerBI, Tableau)</li>
+            </ul>
+            <h3>Rate My Skills:</h3>
+            <div>
+                <label>
+                    <input type="radio" name="html-skill" value="beginner"> Beginner
+                </label>
+                <label>
+                    <input type="radio" name="html-skill" value="intermediate"> Intermediate
+                </label>
+                <label>
+                    <input type="radio" name="html-skill" value="expert"> Expert
+                </label>
+            </div>
+            <p id="skill-feedback"></p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <div>
+                    <label for="subscribe">Subscribe to newsletter:</label>
+                    <input type="checkbox" id="subscribe" name="subscribe">
+                </div>
+                <button type="submit" onclick="
+                alert('yueeeee')">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Yug Patel. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // // Display alert on form submission
+        // document.getElementById('contactForm').addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     alert('Thank you for your message!');
+        //     this.reset(); // Reset form fields
+        // });
+
+        // Dynamic skill rating feedback
+        const skillFeedback = document.getElementById('skill-feedback');
+        document.querySelectorAll('input[name="html-skill"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                skillFeedback.textContent = `You selected: ${this.value}`;
+            });
+        });
+    </script>
+</body>
+</html>
